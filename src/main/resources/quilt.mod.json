@@ -19,7 +19,8 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "me.ultrusmods.luckyducks.LuckyDucksMod"
+			"init": "me.ultrusmods.luckyducks.LuckyDucksMod",
+			"client_init": "me.ultrusmods.luckyducks.client.LuckyDucksClient"
 		},
 		"depends": [
 			{
