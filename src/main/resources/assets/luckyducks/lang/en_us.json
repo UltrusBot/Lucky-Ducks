@@ -1,5 +1,25 @@
 {
   "itemGroup.luckyducks.ducks": "Lucky Ducks",
   "item.luckyducks.rubber_duck": "Rubber Duck",
-  "entity.luckyducks.rubber_duck": "Rubber Duck"
+  "item.luckyducks.rubber_duck_spawn_egg": "Rubber Duck Spawn Egg",
+  "entity.luckyducks.rubber_duck": "Rubber Duck",
+  "text.luckyducks.duck_type": "Type",
+  "rubberducktype.luckyducks.default": "Yellow",
+  "rubberducktype.luckyducks.default2": "Light",
+  "rubberducktype.luckyducks.white":  "White",
+  "rubberducktype.luckyducks.orange": "Orange",
+  "rubberducktype.luckyducks.magenta":  "Magenta",
+  "rubberducktype.luckyducks.light_blue": "Light Blue",
+  "rubberducktype.luckyducks.lime":  "Lime",
+  "rubberducktype.luckyducks.pink": "Pink",
+  "rubberducktype.luckyducks.gray":  "Gray",
+  "rubberducktype.luckyducks.light_gray": "Light Gray",
+  "rubberducktype.luckyducks.cyan":  "Cyan",
+  "rubberducktype.luckyducks.purple": "Purple",
+  "rubberducktype.luckyducks.blue":  "Blue",
+  "rubberducktype.luckyducks.brown": "Brown",
+  "rubberducktype.luckyducks.green":  "Green",
+  "rubberducktype.luckyducks.red": "Red",
+  "rubberducktype.luckyducks.black":  "Black",
+  "subtitles.luckyducks.rubber_duck_squeak": "Rubber Duck Squeak"
 }

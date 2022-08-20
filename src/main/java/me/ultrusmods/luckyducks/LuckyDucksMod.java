@@ -1,5 +1,6 @@
 package me.ultrusmods.luckyducks;
 
+import me.ultrusmods.luckyducks.block.RubberDuckDispenserBehavior;
 import me.ultrusmods.luckyducks.data.LuckyDucksTrackedData;
 import me.ultrusmods.luckyducks.data.RubberDuckRegistry;
 import me.ultrusmods.luckyducks.entity.RubberDuckEntity;
@@ -7,6 +8,7 @@ import me.ultrusmods.luckyducks.entity.RubberDuckType;
 import me.ultrusmods.luckyducks.item.RubberDuckItem;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -14,6 +16,7 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.quiltmc.loader.api.ModContainer;
@@ -37,6 +40,9 @@ public class LuckyDucksMod implements ModInitializer {
 
 	public static final QuiltItemGroup.Builder luckyDuckItems = QuiltItemGroup.builder(id("ducks")).icon(RUBBER_DUCK_ITEM::getDefaultStack);
 
+	public static SoundEvent RUBBER_DUCK_SQUEAK = Registry.register(Registry.SOUND_EVENT, id("rubber_duck_squeak"), new SoundEvent(id("rubber_duck_squeak")));
+
+
 	@Override
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
@@ -45,6 +51,7 @@ public class LuckyDucksMod implements ModInitializer {
 		LuckyDucksTrackedData.init();
 		FabricDefaultAttributeRegistry.register(RUBBER_DUCK, RubberDuckEntity.createRubberDuckAttributes());
 		luckyDuckItems.appendItems((list) -> list.addAll(RubberDuckRegistry.RUBBER_DUCK_TYPES.stream().map(RubberDuckType::createStack).toList()));
+		DispenserBlock.registerBehavior(RUBBER_DUCK_ITEM, new RubberDuckDispenserBehavior());
 		luckyDuckItems.build();
 	}
 

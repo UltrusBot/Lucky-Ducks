@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public record RubberDuckType(Identifier texture) {
+public record RubberDuckType(Identifier texture, Identifier id) {
 	public static final RubberDuckType DEFAULT = createDuck("default", "textures/entity/rubber_duck/default_duck.png");
 	public static final RubberDuckType DEFAULT2 = createDuck("default2", "textures/entity/rubber_duck/default_duck_2.png");
 	public static final RubberDuckType WHITE = createDuck("white", "textures/entity/rubber_duck/white_duck.png");
@@ -28,10 +28,14 @@ public record RubberDuckType(Identifier texture) {
 
 	}
 	public static RubberDuckType createDuck(Identifier id, Identifier texture) {
-		return Registry.register(RubberDuckRegistry.RUBBER_DUCK_TYPES, id, new RubberDuckType(texture));
+		return Registry.register(RubberDuckRegistry.RUBBER_DUCK_TYPES, id, new RubberDuckType(texture, id));
 	}
 	private static RubberDuckType createDuck(String name, String texture) {
 		return createDuck(LuckyDucksMod.id(name), LuckyDucksMod.id(texture));
+	}
+
+	public String getTranslationKey() {
+		return "rubberducktype.%s.%s".formatted(this.id.getNamespace(), this.id.getPath());
 	}
 
 	public ItemStack createStack() {

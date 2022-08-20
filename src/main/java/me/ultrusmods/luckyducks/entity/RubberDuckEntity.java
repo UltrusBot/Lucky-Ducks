@@ -11,6 +11,7 @@ import net.minecraft.entity.ai.goal.WanderAroundGoal;
 import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.mob.MobEntity;
@@ -20,14 +21,18 @@ import net.minecraft.item.DyeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.tag.FluidTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
@@ -69,6 +74,17 @@ public class RubberDuckEntity extends PathAwareEntity {
 
 	public static DefaultAttributeContainer.Builder createRubberDuckAttributes() {
 		return MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 4.0).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25);
+	}
+
+	@Nullable
+	@Override
+	protected SoundEvent getHurtSound(DamageSource source) {
+		return LuckyDucksMod.RUBBER_DUCK_SQUEAK;
+	}
+
+	@Override
+	public float getPathfindingFavor(BlockPos pos, WorldView world) {
+		return (world.getFluidState(pos).isIn(FluidTags.WATER) || world.getFluidState(pos.down()).isIn(FluidTags.WATER) )? 20.0F : super.getPathfindingFavor(pos, world);
 	}
 
 	@Override
