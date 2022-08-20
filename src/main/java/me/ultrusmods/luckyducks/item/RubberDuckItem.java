@@ -59,6 +59,12 @@ public class RubberDuckItem extends Item implements Wearable {
 		return duckEntity;
 	}
 
+	public static ItemStack stackFromType(RubberDuckType duckType) {
+		ItemStack rubberDuckItem = LuckyDucksMod.RUBBER_DUCK_ITEM.getDefaultStack();
+		rubberDuckItem.getOrCreateSubNbt("duckEntity").putString("type", duckType.id().toString());
+		return rubberDuckItem;
+	}
+
 	@Override
 	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
 		NbtCompound nbt = stack.getSubNbt("duckEntity");

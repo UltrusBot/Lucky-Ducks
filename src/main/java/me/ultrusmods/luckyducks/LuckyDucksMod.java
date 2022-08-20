@@ -6,6 +6,7 @@ import me.ultrusmods.luckyducks.data.RubberDuckRegistry;
 import me.ultrusmods.luckyducks.entity.RubberDuckEntity;
 import me.ultrusmods.luckyducks.entity.RubberDuckType;
 import me.ultrusmods.luckyducks.item.RubberDuckItem;
+import me.ultrusmods.luckyducks.trade.LuckyDuckTrades;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.block.DispenserBlock;
@@ -53,6 +54,7 @@ public class LuckyDucksMod implements ModInitializer {
 		luckyDuckItems.appendItems((list) -> list.addAll(RubberDuckRegistry.RUBBER_DUCK_TYPES.stream().map(RubberDuckType::createStack).toList()));
 		DispenserBlock.registerBehavior(RUBBER_DUCK_ITEM, new RubberDuckDispenserBehavior());
 		luckyDuckItems.build();
+		LuckyDuckTrades.init();
 	}
 
 	public static Identifier id(String path) {
