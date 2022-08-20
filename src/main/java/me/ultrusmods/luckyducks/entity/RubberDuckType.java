@@ -2,6 +2,7 @@ package me.ultrusmods.luckyducks.entity;
 
 import me.ultrusmods.luckyducks.LuckyDucksMod;
 import me.ultrusmods.luckyducks.data.RubberDuckRegistry;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -31,5 +32,11 @@ public record RubberDuckType(Identifier texture) {
 	}
 	private static RubberDuckType createDuck(String name, String texture) {
 		return createDuck(LuckyDucksMod.id(name), LuckyDucksMod.id(texture));
+	}
+
+	public ItemStack createStack() {
+		ItemStack itemStack = LuckyDucksMod.RUBBER_DUCK_ITEM.getDefaultStack();
+		itemStack.getOrCreateSubNbt("duckEntity").putString("type", RubberDuckRegistry.RUBBER_DUCK_TYPES.getId(this).toString());
+		return itemStack;
 	}
 }

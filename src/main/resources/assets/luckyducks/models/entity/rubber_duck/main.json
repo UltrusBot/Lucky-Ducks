@@ -1,129 +1,129 @@
 {
-  "texture": {
-    "width": 32,
-    "height": 32
-  },
-  "bones": {
-    "duck": {
-      "transform": {
-        "rotation": [
-          -3.141592653589793,
-          1.4835298641951804,
-          3.141592653589793
-        ]
-      },
-      "cuboids": [],
-      "children": {
-        "head": {
-          "transform": {
-            "origin": [
-              0,
-              -15,
-              -1
-            ]
-          },
-          "cuboids": [
-            {
-              "name": "head",
-              "offset": [
-                1,
-                31,
-                -1
-              ],
-              "dimensions": [
-                4,
-                4,
-                4
-              ],
-              "uv": [
-                0,
-                10
-              ]
+    "texture": {
+        "width": 32,
+        "height": 32
+    },
+    "bones": {
+        "duck": {
+            "transform": {
+                "rotation": [
+                    -3.141592653589793,
+                    1.4835298641951804,
+                    3.141592653589793
+                ]
             },
-            {
-              "name": "beak",
-              "offset": [
-                5,
-                34,
-                0
-              ],
-              "dimensions": [
-                1,
-                1,
-                2
-              ],
-              "uv": [
-                0,
-                0
-              ]
+            "cuboids": [],
+            "children": {
+                "head": {
+                    "transform": {
+                        "origin": [
+                            0,
+                            -15,
+                            -1
+                        ]
+                    },
+                    "cuboids": [
+                        {
+                            "name": "head",
+                            "offset": [
+                                1,
+                                31,
+                                -1
+                            ],
+                            "dimensions": [
+                                4,
+                                4,
+                                4
+                            ],
+                            "uv": [
+                                0,
+                                10
+                            ]
+                        },
+                        {
+                            "name": "beak",
+                            "offset": [
+                                5,
+                                33,
+                                0
+                            ],
+                            "dimensions": [
+                                1,
+                                1,
+                                2
+                            ],
+                            "uv": [
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "children": {}
+                },
+                "body": {
+                    "transform": {
+                        "origin": [
+                            3,
+                            -10.5,
+                            -2
+                        ]
+                    },
+                    "cuboids": [
+                        {
+                            "name": "body",
+                            "offset": [
+                                -8,
+                                29.5,
+                                -1
+                            ],
+                            "dimensions": [
+                                8,
+                                4,
+                                6
+                            ],
+                            "uv": [
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "name": "wingleft",
+                            "offset": [
+                                -7,
+                                29.5,
+                                5
+                            ],
+                            "dimensions": [
+                                6,
+                                3,
+                                1
+                            ],
+                            "uv": [
+                                16,
+                                14
+                            ]
+                        },
+                        {
+                            "name": "wingleft",
+                            "offset": [
+                                -7,
+                                29.5,
+                                -2
+                            ],
+                            "dimensions": [
+                                6,
+                                3,
+                                1
+                            ],
+                            "uv": [
+                                12,
+                                10
+                            ]
+                        }
+                    ],
+                    "children": {}
+                }
             }
-          ],
-          "children": {}
-        },
-        "body": {
-          "transform": {
-            "origin": [
-              3,
-              -10.5,
-              -2
-            ]
-          },
-          "cuboids": [
-            {
-              "name": "body",
-              "offset": [
-                -8,
-                29.5,
-                -1
-              ],
-              "dimensions": [
-                8,
-                4,
-                6
-              ],
-              "uv": [
-                0,
-                0
-              ]
-            },
-            {
-              "name": "wingleft",
-              "offset": [
-                -7,
-                29.5,
-                5
-              ],
-              "dimensions": [
-                6,
-                3,
-                1
-              ],
-              "uv": [
-                16,
-                14
-              ]
-            },
-            {
-              "name": "wingleft",
-              "offset": [
-                -7,
-                29.5,
-                -2
-              ],
-              "dimensions": [
-                6,
-                3,
-                1
-              ],
-              "uv": [
-                12,
-                10
-              ]
-            }
-          ],
-          "children": {}
         }
-      }
     }
-  }
 }

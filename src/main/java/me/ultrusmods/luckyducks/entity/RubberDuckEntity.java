@@ -1,5 +1,6 @@
 package me.ultrusmods.luckyducks.entity;
 
+import me.ultrusmods.luckyducks.LuckyDucksMod;
 import me.ultrusmods.luckyducks.data.LuckyDucksTrackedData;
 import me.ultrusmods.luckyducks.data.RubberDuckRegistry;
 import net.minecraft.entity.EntityData;
@@ -73,6 +74,16 @@ public class RubberDuckEntity extends PathAwareEntity {
 	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
 		ItemStack itemStack = player.getStackInHand(hand);
+		if (player.isSneaking()) {
+			ItemStack rubberDuckItem = LuckyDucksMod.RUBBER_DUCK_ITEM.getDefaultStack();
+			rubberDuckItem.getOrCreateSubNbt("duckEntity").putString("type", RubberDuckRegistry.RUBBER_DUCK_TYPES.getId(getDuckType()).toString());
+			if (this.hasCustomName()) {
+				rubberDuckItem.setCustomName(this.getCustomName());
+			}
+			this.dropStack(rubberDuckItem);
+			this.remove(RemovalReason.DISCARDED);
+			return ActionResult.SUCCESS;
+		}
 		if (itemStack.getItem() instanceof DyeItem dyeItem && DYED_DUCK_COLORS.containsKey(dyeItem.getColor())) {
 			RubberDuckType type = DYED_DUCK_COLORS.get(dyeItem.getColor());
 			itemStack.decrement(1);
