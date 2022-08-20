@@ -23,6 +23,15 @@ public class LuckyDuckTrades {
 			factories.add(new SellDuckFactory(RubberDuckType.GREEN, 15, 1, 1, 1));
 			factories.add(new SellDuckFactory(RubberDuckType.RED, 15, 1, 1, 1));
 			factories.add(new SellDuckFactory(RubberDuckType.BLACK, 15, 1, 1, 1));
+			factories.add(new SellDuckFactory(RubberDuckType.PRIDE, 15, 1, 1, 1));
+			factories.add(new SellDuckFactory(RubberDuckType.ACE, 15, 1, 1, 1));
+			factories.add(new SellDuckFactory(RubberDuckType.AGENDER, 15, 1, 1, 1));
+			factories.add(new SellDuckFactory(RubberDuckType.ARO, 15, 1, 1, 1));
+			factories.add(new SellDuckFactory(RubberDuckType.BI, 15, 1, 1, 1));
+			factories.add(new SellDuckFactory(RubberDuckType.GENDERFLUID, 15, 1, 1, 1));
+			factories.add(new SellDuckFactory(RubberDuckType.LESBIAN, 15, 1, 1, 1));
+			factories.add(new SellDuckFactory(RubberDuckType.PAN, 15, 1, 1, 1));
+			factories.add(new SellDuckFactory(RubberDuckType.TRANS, 15, 1, 1, 1));
 		});
 	}
 }
