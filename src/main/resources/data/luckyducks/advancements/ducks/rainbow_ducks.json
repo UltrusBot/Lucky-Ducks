@@ -1,0 +1,248 @@
+{
+  "display": {
+    "icon": {
+      "item": "luckyducks:rubber_duck",
+      "nbt": "{duckEntity:{type:\"luckyducks:red\"}}"
+    },
+    "title": {
+      "translate": "advancements.luckyducks.rainbow.title"
+    },
+    "description": {
+      "translate": "advancements.luckyducks.rainbow.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "luckyducks:ducks/root",
+  "criteria": {
+    "white": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:white\"}}"
+          }
+        ]
+      }
+    },
+    "orange": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:orange\"}}"
+          }
+        ]
+      }
+    },
+    "magenta": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:magenta\"}}"
+          }
+        ]
+      }
+    },
+    "light_blue": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:light_blue\"}}"
+          }
+        ]
+      }
+    },
+    "lime": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:lime\"}}"
+          }
+        ]
+      }
+    },
+    "pink": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:pink\"}}"
+          }
+        ]
+      }
+    },
+    "gray": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:gray\"}}"
+          }
+        ]
+      }
+    },
+    "light_gray": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:light_gray\"}}"
+          }
+        ]
+      }
+    },
+    "cyan": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:cyan\"}}"
+          }
+        ]
+      }
+    },
+    "purple": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:purple\"}}"
+          }
+        ]
+      }
+    },
+    "blue": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:blue\"}}"
+          }
+        ]
+      }
+    },
+    "brown": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:brown\"}}"
+          }
+        ]
+      }
+    },
+    "green": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:green\"}}"
+          }
+        ]
+      }
+    },
+    "red": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:red\"}}"
+          }
+        ]
+      }
+    },
+    "black": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:black\"}}"
+          }
+        ]
+      }
+    },
+    "default": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:default\"}}"
+          }
+        ]
+      }
+    }
+  },
+
+  "requirements": [
+    ["default"],
+    ["white"],
+    ["orange"],
+    ["magenta"],
+    ["light_blue"],
+    ["lime"],
+    ["pink"],
+    ["gray"],
+    ["light_gray"],
+    ["cyan"],
+    ["purple"],
+    ["blue"],
+    ["brown"],
+    ["green"],
+    ["red"],
+    ["black"]
+  ]
+}

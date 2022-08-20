@@ -31,5 +31,12 @@
   "rubberducktype.luckyducks.lesbian":"Lesbian",
   "rubberducktype.luckyducks.pan": "Pansexual",
   "rubberducktype.luckyducks.trans":"Transgender",
-  "subtitles.luckyducks.rubber_duck_squeak": "Rubber Duck Squeak"
+  "subtitles.luckyducks.rubber_duck_squeak": "Rubber Duck Squeak",
+  "advancements.luckyducks.root.title": "Lucky Ducks",
+  "advancements.luckyducks.root.description": "Collect the many rubber ducks to be found throughout the world.",
+  "advancements.luckyducks.rainbow.title": "Rainbow of Ducks",
+  "advancements.luckyducks.rainbow.description": "Collect all dyed variants of rubber ducks.",
+  "advancements.luckyducks.pride.title": "Pride Ducks",
+  "advancements.luckyducks.pride.description": "Collect all pride variants of rubber ducks."
+
 }

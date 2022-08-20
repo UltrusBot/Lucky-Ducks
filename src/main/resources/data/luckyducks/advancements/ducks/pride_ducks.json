@@ -1,0 +1,150 @@
+{
+  "display": {
+    "icon": {
+      "item": "luckyducks:rubber_duck",
+      "nbt": "{duckEntity:{type:\"luckyducks:pride\"}}"
+    },
+    "title": {
+      "translate": "advancements.luckyducks.pride.title"
+    },
+    "description": {
+      "translate": "advancements.luckyducks.pride.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "luckyducks:ducks/root",
+  "criteria": {
+    "pride": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:pride\"}}"
+          }
+        ]
+      }
+    },
+    "ace": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:ace\"}}"
+          }
+        ]
+      }
+    },
+    "aro": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:aro\"}}"
+          }
+        ]
+      }
+    },
+    "agender": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:agender\"}}"
+          }
+        ]
+      }
+    },
+    "bi": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:bi\"}}"
+          }
+        ]
+      }
+    },
+    "genderfluid": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:genderfluid\"}}"
+          }
+        ]
+      }
+    },
+    "lesbian": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:lesbian\"}}"
+          }
+        ]
+      }
+    },
+    "pan": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:pan\"}}"
+          }
+        ]
+      }
+    },
+    "trans": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "luckyducks:rubber_duck"
+            ],
+            "nbt": "{duckEntity:{type:\"luckyducks:trans\"}}"
+          }
+        ]
+      }
+    }
+  },
+
+  "requirements": [
+    ["pride"],
+    ["ace"],
+    ["agender"],
+    ["aro"],
+    ["bi"],
+    ["genderfluid"],
+    ["lesbian"],
+    ["pan"],
+    ["trans"]
+  ]
+}
