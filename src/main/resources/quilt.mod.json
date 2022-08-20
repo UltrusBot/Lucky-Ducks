@@ -15,7 +15,7 @@
 				"issues": "https://github.com/UltrusBot/Lucky-Ducks/issues",
 				"sources": "https://github.com/UltrusBot/Lucky-Ducks"
 			},
-			"icon": "assets/example_mod/icon.png"
+			"icon": "assets/luckyducks/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
