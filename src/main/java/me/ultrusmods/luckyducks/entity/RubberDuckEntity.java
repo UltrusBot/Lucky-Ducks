@@ -111,6 +111,17 @@ public class RubberDuckEntity extends PathAwareEntity {
 		}
 	}
 
+	@Override
+	public void onDeath(DamageSource source) {
+		ItemStack rubberDuckItem = LuckyDucksMod.RUBBER_DUCK_ITEM.getDefaultStack();
+		rubberDuckItem.getOrCreateSubNbt("duckEntity").putString("type", RubberDuckRegistry.RUBBER_DUCK_TYPES.getId(getDuckType()).toString());
+		if (this.hasCustomName()) {
+			rubberDuckItem.setCustomName(this.getCustomName());
+		}
+		this.dropStack(rubberDuckItem);
+		super.onDeath(source);
+	}
+
 	@Nullable
 	@Override
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
