@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+//TODO: Add rarity field to ducks, will change the tooltip color.
 public record RubberDuckType(Identifier texture, Identifier id) {
 	public static final RubberDuckType DEFAULT = createDuck("default", "textures/entity/rubber_duck/default_duck.png");
 	public static final RubberDuckType DEFAULT2 = createDuck("default2", "textures/entity/rubber_duck/default_duck_2.png");
@@ -24,6 +25,16 @@ public record RubberDuckType(Identifier texture, Identifier id) {
 	public static final RubberDuckType GREEN = createDuck("green", "textures/entity/rubber_duck/green_duck.png");
 	public static final RubberDuckType RED = createDuck("red", "textures/entity/rubber_duck/red_duck.png");
 	public static final RubberDuckType BLACK = createDuck("black", "textures/entity/rubber_duck/black_duck.png");
+	public static final RubberDuckType PRIDE = createDuck("pride", "textures/entity/rubber_duck/pride_duck.png");
+	public static final RubberDuckType ACE = createDuck("ace", "textures/entity/rubber_duck/ace_duck.png");
+	public static final RubberDuckType AGENDER = createDuck("agender", "textures/entity/rubber_duck/agender_duck.png");
+	public static final RubberDuckType ARO = createDuck("aro", "textures/entity/rubber_duck/aro_duck.png");
+	public static final RubberDuckType BI = createDuck("bi", "textures/entity/rubber_duck/bi_duck.png");
+	public static final RubberDuckType GENDERFLUID = createDuck("genderfluid", "textures/entity/rubber_duck/genderfluid_duck.png");
+	public static final RubberDuckType LESBIAN = createDuck("lesbian", "textures/entity/rubber_duck/lesbian_duck.png");
+	public static final RubberDuckType PAN = createDuck("pan", "textures/entity/rubber_duck/pan_duck.png");
+	public static final RubberDuckType TRANS = createDuck("trans", "textures/entity/rubber_duck/trans_duck.png");
+
 	public static void init() {
 
 	}
