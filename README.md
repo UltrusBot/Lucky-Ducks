@@ -1,11 +1,15 @@
-# Lucky Ducks
-Adds rubber ducks that you'll be able to hide items in, inflate and ride, or just use as decoration.
+<p><img src="https://raw.githubusercontent.com/UltrusBot/Lucky-Ducks/1.19/images/lucky_ducks_banner.png" alt="Lucky Ducks" style="display: block; margin-left: auto; margin-right: auto;" width="593" height="334" /></p>
+Lucky Ducks adds sets of cute lil rubber ducks that you can purchase from the wandering trader. Currently, they can be used as decoration. They can be picked up and worn, which will make you play a squeaky sound when you take damage.
 
-You can also wear the rubber ducks.
 
-The current sets of rubber ducks are:
+Planned features include:
+- Inflating the duck to make it bigger, and rideable.
+- Structure to rarely find ducks.
+
+
+
+The current sets of rubber ducks include:
 - Dye Colors
-- More coming soon
+- Pride Ducks
 
-<img src="https://github.com/UltrusBot/Lucky-Ducks/blob/1.19/images/dyed_rubber_ducks.png?raw=true" alt="All the dyed rubber duck colors">
-
+<p><img src="https://github.com/UltrusBot/Lucky-Ducks/blob/1.19/images/all_ducks.png?raw=true" alt="Lucky Ducks" style="display: block; margin-left: auto; margin-right: auto;"/></p>
