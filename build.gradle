@@ -91,7 +91,7 @@ modrinth {
 	dependencies {
 		embedded.project "jsonem"
 	}
-	debugMode = true
+	syncBodyFrom = rootProject.file("README.md").text
 }
 
 curseforge {
