@@ -5,10 +5,12 @@ import me.ultrusmods.luckyducks.data.RubberDuckRegistry;
 import me.ultrusmods.luckyducks.entity.RubberDuckEntity;
 import me.ultrusmods.luckyducks.entity.RubberDuckType;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.Equippable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.item.Wearable;
+
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
@@ -21,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class RubberDuckItem extends Item implements Wearable {
+public class RubberDuckItem extends Item implements Equippable {
 	public RubberDuckItem(Settings settings) {
 		super(settings);
 	}
@@ -72,10 +74,16 @@ public class RubberDuckItem extends Item implements Wearable {
 			String typeString = nbt.getString("type");
 			if (typeString != "") {
 				RubberDuckType type = RubberDuckRegistry.RUBBER_DUCK_TYPES.get(new Identifier(typeString));
+				if (type == null) type = RubberDuckType.DEFAULT;
 				tooltip.add(Text.translatable("text.luckyducks.duck_type").append(": ").append(Text.translatable(type.getTranslationKey())).formatted(Formatting.GRAY));
 
 			}
 		}
 		super.appendTooltip(stack, world, tooltip, context);
+	}
+
+	@Override
+	public EquipmentSlot getPreferredSlot() {
+		return EquipmentSlot.HEAD;
 	}
 }

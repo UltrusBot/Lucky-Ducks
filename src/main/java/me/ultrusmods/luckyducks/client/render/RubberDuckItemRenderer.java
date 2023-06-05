@@ -9,6 +9,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -16,7 +17,7 @@ import net.minecraft.util.Identifier;
 
 public class RubberDuckItemRenderer implements BuiltinItemRendererRegistry.DynamicItemRenderer {
 	@Override
-	public void render(ItemStack stack, ModelTransformation.Mode mode, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+	public void render(ItemStack stack, ModelTransformationMode mode, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
 		EntityRenderDispatcher entityRenderDispatcher = MinecraftClient.getInstance().getEntityRenderDispatcher();
 		RubberDuckEntity rubberDuck = new RubberDuckEntity(LuckyDucksMod.RUBBER_DUCK, MinecraftClient.getInstance().world);
 		NbtCompound nbt = stack.getSubNbt("duckEntity");

@@ -3,8 +3,8 @@ package me.ultrusmods.luckyducks.entity;
 import me.ultrusmods.luckyducks.LuckyDucksMod;
 import me.ultrusmods.luckyducks.data.RubberDuckRegistry;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 //TODO: Add rarity field to ducks, will change the tooltip color.
 public record RubberDuckType(Identifier texture, Identifier id) {

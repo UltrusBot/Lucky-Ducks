@@ -20,10 +20,10 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.tag.FluidTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Hand;
@@ -73,7 +73,7 @@ public class RubberDuckEntity extends PathAwareEntity {
 	}
 
 	public static DefaultAttributeContainer.Builder createRubberDuckAttributes() {
-		return MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 4.0).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25);
+		return MobEntity.createAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 4.0).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25);
 	}
 
 	@Nullable
@@ -104,8 +104,8 @@ public class RubberDuckEntity extends PathAwareEntity {
 			RubberDuckType type = DYED_DUCK_COLORS.get(dyeItem.getColor());
 			itemStack.decrement(1);
 			this.setType(type);
-			this.world.playSoundFromEntity(player, this, SoundEvents.ITEM_DYE_USE, SoundCategory.PLAYERS, 1.0F, 1.0F);
-			return ActionResult.success(player.world.isClient);
+			this.getWorld().playSoundFromEntity(player, this, SoundEvents.ITEM_DYE_USE, SoundCategory.PLAYERS, 1.0F, 1.0F);
+			return ActionResult.success(player.getWorld().isClient);
 		} else {
 			return super.interactMob(player, hand);
 		}
