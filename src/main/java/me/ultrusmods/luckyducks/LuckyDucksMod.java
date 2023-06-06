@@ -1,6 +1,7 @@
 package me.ultrusmods.luckyducks;
 
 import me.ultrusmods.luckyducks.block.RubberDuckDispenserBehavior;
+import me.ultrusmods.luckyducks.data.DucksLoader;
 import me.ultrusmods.luckyducks.entity.LuckyDucksTrackedData;
 import me.ultrusmods.luckyducks.data.RubberDuckRegistry;
 import me.ultrusmods.luckyducks.entity.RubberDuckEntity;
@@ -48,6 +49,7 @@ public class LuckyDucksMod implements ModInitializer {
 		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
 		RubberDuckType.init();
 		RubberDuckRegistry.init();
+		DucksLoader.loadDucks();
 		LuckyDucksTrackedData.init();
 		FabricDefaultAttributeRegistry.register(RUBBER_DUCK, RubberDuckEntity.createRubberDuckAttributes());
 		Registry.register(Registries.ITEM_GROUP, id("ducks"),

@@ -10,19 +10,19 @@ import net.minecraft.item.Equippable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 
 public class RubberDuckItem extends Item implements Equippable {
 	public RubberDuckItem(Settings settings) {
@@ -46,6 +46,21 @@ public class RubberDuckItem extends Item implements Equippable {
 		return ActionResult.SUCCESS;
 	}
 
+	@Override
+	public Rarity getRarity(ItemStack stack) {
+		NbtCompound nbt = stack.getSubNbt("duckEntity");
+		if (nbt != null) {
+			String typeString = nbt.getString("type");
+			if (!Objects.equals(typeString, "")) {
+				RubberDuckType type = RubberDuckRegistry.RUBBER_DUCK_TYPES.get(new Identifier(typeString));
+				if (type == null) {
+					type = RubberDuckType.DEFAULT;
+				}
+				return type.rarity().getRarity();
+			}
+		}
+		return Rarity.COMMON;
+	}
 
 	public static RubberDuckEntity createFromStack(ItemStack stack, World world) {
 		NbtCompound nbt = stack.getSubNbt("duckEntity");

@@ -13,6 +13,7 @@ group = project.maven_group
 
 repositories {
 	maven { url "https://api.modrinth.com/maven" }
+	maven { url "https://maven.lukebemish.dev/releases" }
 }
 
 // All the dependencies are declared at gradle/libs.version.toml and referenced with "libs.<id>"
@@ -25,6 +26,10 @@ dependencies {
 	// QSL is not a complete API; You will need Quilted Fabric API to fill in the gaps.
 	// Quilted Fabric API will automatically pull in the correct QSL version.
 	modImplementation libs.quilted.fabric.api
+	// Exclude quilt from defaultresources
+	modImplementation (libs.defaultresources) {
+		transitive = false
+	}
 	// modImplementation libs.bundles.quilted.fabric.api // If you wish to use Fabric API's deprecated modules, you can replace the above line with this one
 }
 
