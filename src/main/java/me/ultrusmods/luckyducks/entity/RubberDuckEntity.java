@@ -1,11 +1,11 @@
 package me.ultrusmods.luckyducks.entity;
 
 import me.ultrusmods.luckyducks.LuckyDucksMod;
-import me.ultrusmods.luckyducks.data.LuckyDucksTrackedData;
 import me.ultrusmods.luckyducks.data.RubberDuckRegistry;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WanderAroundGoal;
 import net.minecraft.entity.ai.pathing.PathNodeType;
@@ -14,6 +14,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -35,10 +36,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.EnumSet;
 import java.util.HashMap;
 
 public class RubberDuckEntity extends PathAwareEntity {
-	private static final TrackedData<RubberDuckType> TYPE;
+	private static final TrackedData<RubberDuckType> TYPE = DataTracker.registerData(RubberDuckEntity.class, LuckyDucksTrackedData.RUBBER_DUCK_TYPE);
+	private static final TrackedData<Boolean> IS_STILL = DataTracker.registerData(RubberDuckEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	private static final HashMap<DyeColor, RubberDuckType> DYED_DUCK_COLORS = new HashMap<>();
 	public RubberDuckEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
 		super(entityType, world);
@@ -48,19 +51,30 @@ public class RubberDuckEntity extends PathAwareEntity {
 	@Override
 	protected void initGoals() {
 		this.goalSelector.add(0, new SwimGoal(this));
-		this.goalSelector.add(1, new WanderAroundGoal(this, 1, 10));
+		this.goalSelector.add(1, new StillGoal(this));
+		this.goalSelector.add(2, new WanderAroundGoal(this, 1, 10));
 	}
 
 	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
 		this.dataTracker.startTracking(TYPE, RubberDuckType.DEFAULT);
+		this.dataTracker.startTracking(IS_STILL, false);
 	}
 
 	@Override
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
 		nbt.putString("duck_type", RubberDuckRegistry.RUBBER_DUCK_TYPES.getId(this.getDuckType()).toString());
+		nbt.putBoolean("still", this.isStill());
+	}
+
+	public boolean isStill() {
+		return this.dataTracker.get(IS_STILL);
+	}
+
+	public void toggleStill() {
+		this.dataTracker.set(IS_STILL, !this.isStill());
 	}
 
 	@Override
@@ -70,6 +84,8 @@ public class RubberDuckEntity extends PathAwareEntity {
 		if (duckType != null) {
 			this.setType(duckType);
 		}
+		boolean still = nbt.getBoolean("still");
+		this.dataTracker.set(IS_STILL, still);
 	}
 
 	public static DefaultAttributeContainer.Builder createRubberDuckAttributes() {
@@ -106,9 +122,19 @@ public class RubberDuckEntity extends PathAwareEntity {
 			this.setType(type);
 			this.getWorld().playSoundFromEntity(player, this, SoundEvents.ITEM_DYE_USE, SoundCategory.PLAYERS, 1.0F, 1.0F);
 			return ActionResult.success(player.getWorld().isClient);
-		} else {
-			return super.interactMob(player, hand);
 		}
+		if (itemStack.isEmpty()) {
+			this.toggleStill();
+			this.lookAtEntity(player, 360, 360);
+			this.navigation.stop();
+			return ActionResult.SUCCESS;
+		}
+		return super.interactMob(player, hand);
+	}
+
+	@Override
+	public boolean isPushable() {
+		return !this.isStill();
 	}
 
 	@Override
@@ -138,7 +164,6 @@ public class RubberDuckEntity extends PathAwareEntity {
 	}
 
 	static {
-		TYPE = DataTracker.registerData(RubberDuckEntity.class, LuckyDucksTrackedData.RUBBER_DUCK_TYPE);
 		DYED_DUCK_COLORS.put(DyeColor.WHITE, RubberDuckType.WHITE);
 		DYED_DUCK_COLORS.put(DyeColor.ORANGE, RubberDuckType.ORANGE);
 		DYED_DUCK_COLORS.put(DyeColor.YELLOW, RubberDuckType.DEFAULT);
@@ -155,5 +180,29 @@ public class RubberDuckEntity extends PathAwareEntity {
 		DYED_DUCK_COLORS.put(DyeColor.GREEN, RubberDuckType.GREEN);
 		DYED_DUCK_COLORS.put(DyeColor.RED, RubberDuckType.RED);
 		DYED_DUCK_COLORS.put(DyeColor.BLACK, RubberDuckType.BLACK);
+	}
+
+	private static class StillGoal extends Goal {
+		private final RubberDuckEntity duck;
+
+		public StillGoal(RubberDuckEntity duck) {
+			this.duck = duck;
+			this.setControls(EnumSet.of(Goal.Control.JUMP, Goal.Control.MOVE));
+		}
+
+		@Override
+		public boolean canStart() {
+			return this.duck.isStill() && this.duck.isOnGround();
+		}
+
+		@Override
+		public boolean shouldContinue() {
+			return this.duck.isStill();
+		}
+
+		@Override
+		public void start() {
+			this.duck.getNavigation().stop();
+		}
 	}
 }

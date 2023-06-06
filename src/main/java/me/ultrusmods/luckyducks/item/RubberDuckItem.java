@@ -18,6 +18,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -34,8 +35,12 @@ public class RubberDuckItem extends Item implements Equippable {
 			return ActionResult.SUCCESS;
 		}
 		RubberDuckEntity duckEntity = createFromStack(context.getStack(), context.getWorld());
-		BlockPos pos = context.getBlockPos();
-		duckEntity.refreshPositionAndAngles(pos.getX(), pos.getY()+1, pos.getZ(), 0.0F, 0.0F);
+		Vec3d pos = context.getHitPos();
+		duckEntity.lookAtEntity(context.getPlayer(), 360, 360);
+		if (context.getPlayer() != null && context.getPlayer().isSneaking()) {
+			duckEntity.toggleStill(); // Makes the duck not move.
+		}
+		duckEntity.refreshPositionAndAngles(pos.getX(), pos.getY(), pos.getZ(), 0.0F, 0.0F);
 		context.getWorld().spawnEntity(duckEntity);
 		context.getStack().decrement(1);
 		return ActionResult.SUCCESS;

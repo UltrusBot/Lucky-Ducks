@@ -1,7 +1,7 @@
 package me.ultrusmods.luckyducks;
 
 import me.ultrusmods.luckyducks.block.RubberDuckDispenserBehavior;
-import me.ultrusmods.luckyducks.data.LuckyDucksTrackedData;
+import me.ultrusmods.luckyducks.entity.LuckyDucksTrackedData;
 import me.ultrusmods.luckyducks.data.RubberDuckRegistry;
 import me.ultrusmods.luckyducks.entity.RubberDuckEntity;
 import me.ultrusmods.luckyducks.entity.RubberDuckType;
@@ -9,14 +9,12 @@ import me.ultrusmods.luckyducks.item.RubberDuckItem;
 import me.ultrusmods.luckyducks.trade.LuckyDuckTrades;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
