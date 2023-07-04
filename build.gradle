@@ -91,7 +91,7 @@ var mod = createModReleaseMetadata(
 	["quilt"],
 	"remapJar",
 	["remapSourcesJar"],
-	"v${project.version}+${libs.minecraft.get().getVersionConstraint().displayName}",
+	"v${project.version}",
 	false
 )
 modrinthInfo(mod, "luckyducks", ["qsl"], ["trinkets"])
