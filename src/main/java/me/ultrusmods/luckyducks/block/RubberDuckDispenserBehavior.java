@@ -13,7 +13,7 @@ public class RubberDuckDispenserBehavior extends ItemDispenserBehavior {
 	@Override
 	protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
 		try {
-			RubberDuckEntity duckEntity = RubberDuckItem.createFromStack(stack, pointer.getWorld());
+			RubberDuckEntity duckEntity = RubberDuckItem.createFromStack(stack, pointer.getWorld(), pointer.getPos(), null, pointer.getPos().ofCenter());
 			BlockPos pos = pointer.getPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
 			duckEntity.refreshPositionAndAngles(pos.getX(), pos.getY()+1, pos.getZ(), 0.0F, 0.0F);
 			pointer.getWorld().spawnEntity(duckEntity);

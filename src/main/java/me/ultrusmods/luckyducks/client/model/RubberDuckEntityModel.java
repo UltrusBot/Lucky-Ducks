@@ -6,7 +6,7 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 
-public class RubberDuckEntityModel extends EntityModel<RubberDuckEntity> {
+public class RubberDuckEntityModel<T extends RubberDuckEntity> extends EntityModel<T> {
 	private final ModelPart duck;
 	public RubberDuckEntityModel(ModelPart modelPart) {
 		this.duck = modelPart.getChild("duck");

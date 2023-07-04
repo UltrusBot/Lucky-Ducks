@@ -2,13 +2,12 @@ package me.ultrusmods.luckyducks.client.render;
 
 import me.ultrusmods.luckyducks.LuckyDucksMod;
 import me.ultrusmods.luckyducks.data.RubberDuckRegistry;
+import me.ultrusmods.luckyducks.data.RubberDuckType;
 import me.ultrusmods.luckyducks.entity.RubberDuckEntity;
-import me.ultrusmods.luckyducks.entity.RubberDuckType;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
-import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;

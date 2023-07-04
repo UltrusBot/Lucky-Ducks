@@ -2,6 +2,7 @@ package me.ultrusmods.luckyducks.entity;
 
 import me.ultrusmods.luckyducks.LuckyDucksMod;
 import me.ultrusmods.luckyducks.data.RubberDuckRegistry;
+import me.ultrusmods.luckyducks.data.RubberDuckType;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -113,7 +114,7 @@ public class RubberDuckEntity extends PathAwareEntity {
 				rubberDuckItem.setCustomName(this.getCustomName());
 			}
 			this.dropStack(rubberDuckItem);
-			this.remove(RemovalReason.DISCARDED);
+			this.discard();
 			return ActionResult.SUCCESS;
 		}
 		if (itemStack.getItem() instanceof DyeItem dyeItem && DYED_DUCK_COLORS.containsKey(dyeItem.getColor())) {
@@ -157,6 +158,12 @@ public class RubberDuckEntity extends PathAwareEntity {
 
 	public void setType(RubberDuckType type) {
 		this.dataTracker.set(TYPE, type);
+	}
+
+
+	@Override
+	public boolean cannotDespawn() {
+		return true;
 	}
 
 	public RubberDuckType getDuckType() {

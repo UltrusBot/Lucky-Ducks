@@ -6,7 +6,7 @@
 		"version": "${version}",
 		"metadata": {
 			"name": "Lucky Ducks",
-			"description": "Adds rubber ducks that you can hide items in, inflate and ride, or just use as decoration.",
+			"description": "Adds cute lil rubber ducks you can wear on your head, or just place around your world!",
 			"contributors": {
 				"UltrusBot": "Owner"
 			},
@@ -33,7 +33,11 @@
 			},
 			{
 				"id": "minecraft",
-				"versions": ">=1.19.2"
+				"versions": ">=1.20"
+			},
+			{
+				"id": "defaultresources",
+				"versions": "*"
 			}
 		]
 	},

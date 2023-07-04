@@ -1,0 +1,12 @@
+{
+  "id": "luckyducks:warden",
+  "set": "luckyducks:mobs",
+  "texture": "luckyducks:textures/entity/rubber_duck/warden_duck.png",
+  "rarity": "epic",
+  "overlay": {
+    "texture": "luckyducks:textures/entity/rubber_duck/warden_duck_overlay.png",
+    "glows": true,
+    "animation_type": "pulse",
+    "animation_speed": 0.25
+  }
+}

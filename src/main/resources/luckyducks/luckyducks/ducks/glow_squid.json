@@ -1,0 +1,13 @@
+{
+  "id": "luckyducks:glow_squid",
+  "set": "luckyducks:mobs",
+  "texture": "luckyducks:textures/entity/rubber_duck/glow_squid_duck.png",
+  "rarity": "rare",
+  "overlay": {
+    "texture": "luckyducks:textures/entity/rubber_duck/glow_squid_duck.png",
+    "glows": true,
+    "animation_type": "sin",
+    "animation_speed": 0.5,
+    "animation_offset": 0.5
+  }
+}

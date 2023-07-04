@@ -1,0 +1,6 @@
+{
+  "id": "luckyducks:slime",
+  "set": "luckyducks:mobs",
+  "texture": "luckyducks:textures/entity/rubber_duck/slime_duck.png",
+  "rarity": "slime"
+}

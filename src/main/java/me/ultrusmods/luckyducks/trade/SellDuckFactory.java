@@ -1,6 +1,6 @@
 package me.ultrusmods.luckyducks.trade;
 
-import me.ultrusmods.luckyducks.entity.RubberDuckType;
+import me.ultrusmods.luckyducks.data.RubberDuckType;
 import me.ultrusmods.luckyducks.item.RubberDuckItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;

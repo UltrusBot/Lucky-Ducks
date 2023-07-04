@@ -1,12 +1,13 @@
 [versions]
 # The latest versions are available at https://lambdaurora.dev/tools/import_quilt.html
-minecraft = "1.20-rc1"
-quilt_mappings = "1.20-rc1+build.5"
-quilt_loader = "0.19.0-beta.18"
+minecraft = "1.20.1"
+quilt_mappings = "1.20.1+build.10"
+quilt_loader = "0.19.2-beta.7"
 
-quilted_fabric_api = "7.0.0-alpha.4+0.83.0-1.20"
+quilted_fabric_api = "7.0.4+0.84.0-1.20.1"
 
-defaultresources = "1.0.3"
+defaultresources = "2.0.0"
+trinkets = "3.7.0"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
@@ -16,7 +17,8 @@ quilt_loader = { module = "org.quiltmc:quilt-loader", version.ref = "quilt_loade
 quilted_fabric_api = { module = "org.quiltmc.quilted-fabric-api:quilted-fabric-api", version.ref = "quilted_fabric_api" }
 quilted_fabric_api_deprecated = { module = "org.quiltmc.quilted-fabric-api:quilted-fabric-api-deprecated", version.ref = "quilted_fabric_api" }
 
-defaultresources = { module = "dev.lukebemish.defaultresources:defaultresources-quilt-1.19.4", version.ref = "defaultresources" }
+defaultresources = { module = "dev.lukebemish.defaultresources:defaultresources-quilt-1.20", version.ref = "defaultresources" }
+trinkets = { module = "dev.emi:trinkets", version.ref = "trinkets" }
 
 [bundles]
 quilted_fabric_api = ["quilted_fabric_api", "quilted_fabric_api_deprecated"]

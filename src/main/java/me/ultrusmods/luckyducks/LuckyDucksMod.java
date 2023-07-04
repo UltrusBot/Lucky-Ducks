@@ -2,10 +2,10 @@ package me.ultrusmods.luckyducks;
 
 import me.ultrusmods.luckyducks.block.RubberDuckDispenserBehavior;
 import me.ultrusmods.luckyducks.data.DucksLoader;
-import me.ultrusmods.luckyducks.entity.LuckyDucksTrackedData;
 import me.ultrusmods.luckyducks.data.RubberDuckRegistry;
+import me.ultrusmods.luckyducks.data.RubberDuckType;
+import me.ultrusmods.luckyducks.entity.LuckyDucksTrackedData;
 import me.ultrusmods.luckyducks.entity.RubberDuckEntity;
-import me.ultrusmods.luckyducks.entity.RubberDuckType;
 import me.ultrusmods.luckyducks.item.RubberDuckItem;
 import me.ultrusmods.luckyducks.trade.LuckyDuckTrades;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -24,6 +24,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;
+import org.quiltmc.loader.api.QuiltLoader;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.quiltmc.qsl.entity.api.QuiltEntityTypeBuilder;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
@@ -33,6 +34,7 @@ import org.slf4j.LoggerFactory;
 public class LuckyDucksMod implements ModInitializer {
 	public static final String MOD_ID = "luckyducks";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static final boolean TRINKETS_LOADED = QuiltLoader.isModLoaded("trinkets");
 
 	public static final EntityType<RubberDuckEntity> RUBBER_DUCK = Registry.register(
 			Registries.ENTITY_TYPE,
@@ -57,9 +59,8 @@ public class LuckyDucksMod implements ModInitializer {
 				.name(Text.translatable("itemGroup.luckyducks.ducks"))
 				.icon(() -> new ItemStack(RUBBER_DUCK_ITEM))
 				.entries((displayParameters, stackCollector) -> {
-					for (RubberDuckType type : RubberDuckRegistry.RUBBER_DUCK_TYPES) {
-						stackCollector.addStack(type.createStack());
-					}
+					RubberDuckType.DUCK_SETS.forEach((identifier, rubberDuckTypes) ->
+							rubberDuckTypes.forEach(rubberDuckType -> stackCollector.addStack(rubberDuckType.createStack())));
 				})
 				.build()
 		);

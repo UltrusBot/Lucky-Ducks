@@ -1,6 +1,7 @@
 package me.ultrusmods.luckyducks.mixin;
 
 import me.ultrusmods.luckyducks.LuckyDucksMod;
+import me.ultrusmods.luckyducks.trinket.TrinketsCompat;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,6 +23,10 @@ public abstract class PlayerEntityMixin {
 	public void addDuckSqueakSound$LuckyDucks(DamageSource source, CallbackInfoReturnable<SoundEvent> cir) {
 		if (getEquippedStack(EquipmentSlot.HEAD).isOf(LuckyDucksMod.RUBBER_DUCK_ITEM)) {
 			cir.setReturnValue(LuckyDucksMod.RUBBER_DUCK_SQUEAK);
+		} else if (LuckyDucksMod.TRINKETS_LOADED) {
+			if (TrinketsCompat.hasDuckTrinket((PlayerEntity) (Object) this)) {
+				cir.setReturnValue(LuckyDucksMod.RUBBER_DUCK_SQUEAK);
+			}
 		}
 	}
 }

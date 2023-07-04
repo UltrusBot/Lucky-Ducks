@@ -1,7 +1,6 @@
 package me.ultrusmods.luckyducks.data;
 
 import me.ultrusmods.luckyducks.LuckyDucksMod;
-import me.ultrusmods.luckyducks.entity.RubberDuckType;
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
 import net.minecraft.registry.SimpleRegistry;
 

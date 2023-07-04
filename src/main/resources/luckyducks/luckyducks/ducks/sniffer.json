@@ -1,0 +1,6 @@
+{
+  "id": "luckyducks:sniffer",
+  "set": "luckyducks:mobs",
+  "texture": "luckyducks:textures/entity/rubber_duck/sniffer_duck.png",
+  "rarity": "rare"
+}

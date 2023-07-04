@@ -4,6 +4,7 @@ import me.ultrusmods.luckyducks.LuckyDucksMod;
 import me.ultrusmods.luckyducks.client.model.RubberDuckEntityModel;
 import me.ultrusmods.luckyducks.client.render.RubberDuckEntityRenderer;
 import me.ultrusmods.luckyducks.client.render.RubberDuckItemRenderer;
+import me.ultrusmods.luckyducks.trinket.TrinketsCompat;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -18,5 +19,8 @@ public class LuckyDucksClient implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(RUBBER_DUCK_MODEL_LAYER, RubberDuckEntityModel::getTexturedModelData);
 		EntityRendererRegistry.register(LuckyDucksMod.RUBBER_DUCK, RubberDuckEntityRenderer::new);
 		BuiltinItemRendererRegistry.INSTANCE.register(LuckyDucksMod.RUBBER_DUCK_ITEM, new RubberDuckItemRenderer());
+		if (LuckyDucksMod.TRINKETS_LOADED) {
+			TrinketsCompat.registerRenderers();
+		}
 	}
 }
