@@ -107,6 +107,7 @@ public class RubberDuckEntity extends PathAwareEntity {
 	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
 		ItemStack itemStack = player.getStackInHand(hand);
+		if (!player.canModifyBlocks()) return ActionResult.PASS;
 		if (player.isSneaking()) {
 			ItemStack rubberDuckItem = LuckyDucksMod.RUBBER_DUCK_ITEM.getDefaultStack();
 			rubberDuckItem.getOrCreateSubNbt("duckEntity").putString("type", RubberDuckRegistry.RUBBER_DUCK_TYPES.getId(getDuckType()).toString());

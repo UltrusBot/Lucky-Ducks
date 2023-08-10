@@ -1,5 +1,2 @@
-- Added 11 new rubber duck types:
-  - New Pride Flag Ducks: BIPOC, Gay, Non-binary, and Plural.
-  - New Duck Set: Mobs, including Creeper, Ender, Glow Squid, Skeleton, Slime, Sniffer, and Warden.
-- Shift clicking a duck makes it stay still, shifting while placing it also makes it stay still.
-- You can add ducks via json. You can view examples in `resources/luckyducks/luckyducks/ducks/` where all the jsons for the ducks added this update are located.
+- Improved Rendering of rubber duck item by caching the duck entities for each type of duck.
+- Adventure mode players can no longer pick up, dye, or toggle rubber ducks.
